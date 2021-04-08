@@ -1,5 +1,9 @@
 package com.rodrigodonizettio.restfulwebservice.model
 
-data class Message(val id: Long?, val text: String) {
+import org.springframework.data.annotation.Id
+import org.springframework.data.relational.core.mapping.Table
+
+@Table("MESSAGE")
+data class Message(@Id val id: Long?, val text: String) {
 
 }
