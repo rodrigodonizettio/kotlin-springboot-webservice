@@ -1,0 +1,31 @@
+### Post 'Greetings!"
+### e.g. cURL: curl -X POST --location "http://localhost:8080" -H "Content-Type: application/json" -d "{ \"text\": \"Greetings!\" }"
+
+POST http://localhost:8080/
+Content-Type: application/json
+
+{
+  "text": "Greetings!"
+}
+
+### Post "Hail!"
+
+POST http://localhost:8080/
+Content-Type: application/json
+
+{
+  "text": "Hail!"
+}
+
+### Post "Hello!"
+
+POST http://localhost:8080/
+Content-Type: application/json
+
+{
+  "text": "Hello!"
+}
+
+### Get all the messages
+### e.g. cURL: curl -X GET --location "http://localhost:8080"
+GET http://localhost:8080/
