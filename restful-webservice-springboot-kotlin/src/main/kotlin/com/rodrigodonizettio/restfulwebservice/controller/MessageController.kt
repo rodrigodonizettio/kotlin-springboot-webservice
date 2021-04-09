@@ -1,15 +1,26 @@
 package com.rodrigodonizettio.restfulwebservice.controller
 
 import com.rodrigodonizettio.restfulwebservice.model.Message
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RestController
+import com.rodrigodonizettio.restfulwebservice.service.MessageService
+import org.springframework.web.bind.annotation.*
 
 @RestController
-class MessageController {
+class MessageController(val service: MessageService) {
     @GetMapping
-    fun index(): List<Message> = listOf(
-            Message(1, "Greetings!"),
-            Message(2, "Hail!"),
-            Message(1, "Hello!"),
-    )
+    fun index(): List<Message> = service.findMessages()
+
+    @PostMapping
+    fun post(@RequestBody message: Message) {
+        service.post(message)
+    }
+
+    @PutMapping
+    fun update(@RequestBody message: Message) {
+        service.update(message)
+    }
+
+    @DeleteMapping("{id}")
+    fun delete(@PathVariable id: Long?) {
+        service.delete(id)
+    }
 }
